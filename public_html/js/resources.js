@@ -4,6 +4,7 @@ game.resources = [
 	 * @example
 	 * {name: "example", type:"image", src: "data/img/example.png"},
 	 */
+        {name: "item-spritesheet", type:"image", src: "data/img/item-spritesheet.png"},
         {name: "Background-tiles", type:"image", src: "data/img/background-tiles.png"},
         {name: "Meta-tiles", type:"image", src: "data/img/meta-tiles.png"},
         {name: "Bruh", type:"image", src: "data/img/player1.png"},

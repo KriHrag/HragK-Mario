@@ -41,7 +41,7 @@ var game = {
 	"loaded" : function () {
                 me.pool.register("Bruh", game.PlayerEntity, true);
                 
-                me.pool.register("levelTrigger,game.LevelTrigger");
+                me.pool.register("levelTrigger", game.LevelTrigger);
             
             
 		me.state.set(me.state.MENU, new game.TitleScreen());
