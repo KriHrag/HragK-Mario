@@ -13,7 +13,7 @@ game.PlayerEntity = me.Entity.extend({
       }]);
   
       this.renderable.addAnimation("idle", [3]);
-      this.renderable.addAnimation("smallWalk", [8, 9, 10, 11, 12, 13], 80);
+      this.renderable.addAnimation("smallWalk", [38, 39, 40, 41, 42, 43], 80);
       
       this.renderable.setCurrentAnimation("idle"); 
     
@@ -72,7 +72,7 @@ game.LevelTrigger = me.Entity.extend({
     onCollision: function(){
         this.body.setCollisionMask(me.collision.types.NO_OBJECT);
         me.levelDirector.loadLevel(this.level);
-//        me.state.current().resetPlayer(this.xSpawn, this.ySpawn);
+        me.state.current().resetPlayer(this.xSpawn, this.ySpawn);
     }
 
 });
