@@ -36,8 +36,16 @@ game.PlayerEntity = me.Entity.extend({
     else{
         this.body.vel.x = 0;
     }
-   
-     me.collision.check(this, true, this.collideHandler.bind(this), true);   
+    
+    this.body.update(delta);
+     me.collision.check(this, true, this.collideHandler.bind(this), true);  
+     
+     if (me.input.isKeyPressed('jump'))  {
+         if (!this.body.jumping && !this.body.falling)  {
+             this.body.vel.y = -this.body.maxVel.y * me.timer.tick;
+             this.body.jumping = true;
+         }
+     }
     if(this.body.vel.x !== 0){
         if(!this.renderable.isCurrentAnimation("smallWalk")) {
         this.renderable.setCurrentAnimation("smallWalk");
@@ -48,8 +56,7 @@ game.PlayerEntity = me.Entity.extend({
     }
     
     
-    
-    this.body.update(delta);
+  
     this._super(me.Entity, "update", [delta]);
     return true;
     },    
