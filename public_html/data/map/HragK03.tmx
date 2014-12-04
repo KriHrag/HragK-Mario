@@ -43,6 +43,6 @@
   </data>
  </layer>
  <objectgroup color="#ff0000" name="Trigger-entities">
-  <object x="980" y="351" width="69" height="139"/>
+  <object name="LevelTrigger" x="980" y="351" width="69" height="139"/>
  </objectgroup>
 </map>

@@ -60,4 +60,8 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup color="#ff0000" name="EnemyEntities">
+  <object name="BadGuy" x="488" y="496" width="70" height="60"/>
+  <object name="BadGuy" x="775" y="282" width="66" height="66"/>
+ </objectgroup>
 </map>

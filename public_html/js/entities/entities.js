@@ -83,3 +83,40 @@ game.LevelTrigger = me.Entity.extend({
     }
 
 });
+
+
+
+game.BadGuy = me.Entity.extend({
+   init: function(x, y, settings){
+        this._super(me.Entity, 'init', [x, y, {
+              image: "slime",
+              spritewidth: "60",
+              spriteheight: "28",
+              width: 60,
+              height: 28,
+              getShape: function(){
+                  return (new me.Rect(0, 0, 60, 28)).toPolygon();
+              }
+      }]);
+  
+  this.spritewidth  = 60;
+var width = settings.width;
+x = this.pos.x;
+this.startX = x;
+this.endX = x + width - this.spritewidth;
+this.pos.x = x + width - this.spritewidth;
+this.updateBounds();
+
+this.alwaysUpdate = true;
+
+this.walkLeft = false;
+this.alive = true;
+this.type = "badguy";
+
+this.renderable.addAnimation()
+  
+   },
+     update: function(delta){
+         
+     }
+});

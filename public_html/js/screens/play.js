@@ -31,6 +31,6 @@ game.PlayScreen = me.ScreenObject.extend({
         
         resetPlayer: function(x, y){
              var player = me.pool.pull("Bruh", x, y, {});
-             me.game.world.addChild(player, 6);
+             me.game.world.addChild(player, 4);
         }
 });
