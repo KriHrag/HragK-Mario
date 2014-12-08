@@ -10,6 +10,7 @@ game.resources = [
         {name: "Bruh", type:"image", src: "data/img/player1.png"},
         {name: "title-screen", type:"image", src: "data/img/title-screen.png"},
         {name: "slime", type:"image", src: "data/img/slime-spritesheet.png"},
+        {name: "Background-tiles", type:"image", src: "data/img/painting.png"},
 
 	/* Atlases 
 	 * @example
