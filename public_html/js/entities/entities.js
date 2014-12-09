@@ -64,10 +64,11 @@ game.PlayerEntity = me.Entity.extend({
     collideHandler: function(response){
      if(response.b.type === 'badguy'){
          me.state.change(me.state.MENU);
-     }
-        
+     }       
+    else if(response.b.type === 'mushroom'){
+        console.log("Big!");
     }
-    
+}
 });
 
 game.LevelTrigger = me.Entity.extend({
@@ -78,6 +79,8 @@ game.LevelTrigger = me.Entity.extend({
         this.xSpawn = settings.xSpawn;
         this.ySpawn = settings.ySpawn;
     },    
+    
+    //triggers to go to the next level
     
     onCollision: function(){
         this.body.setCollisionMask(me.collision.types.NO_OBJECT);
