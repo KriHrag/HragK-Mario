@@ -10,7 +10,8 @@ game.resources = [
         {name: "Bruh", type:"image", src: "data/img/player1.png"},
         {name: "title-screen", type:"image", src: "data/img/title-screen.png"},
         {name: "slime", type:"image", src: "data/img/slime-spritesheet.png"},
-        {name: "Background-tiles", type:"image", src: "data/img/painting.png"},
+        {name: "mushroom", type:"image", src: "data/img/mushroom.png"},
+        {name: "star", type:"image", src: "data/img/star.png"},
 
 	/* Atlases 
 	 * @example
@@ -24,7 +25,7 @@ game.resources = [
  	 */
         {name: "HragK01", type: "tmx", src: "data/map/HragK01.tmx"},
         {name: "HragK02", type: "tmx", src: "data/map/HragK02.tmx"},
-        {name: "HragK03", type: "tmx", src: "data/map/HragK03.tmx"},
+        {name: "HragK03", type: "tmx", src: "data/map/HragK03.tmx"}
 
 	/* Background music. 
 	 * @example
