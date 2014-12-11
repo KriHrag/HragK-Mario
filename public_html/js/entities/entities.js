@@ -1,4 +1,5 @@
- // TODO
+
+ 
 game.PlayerEntity = me.Entity.extend({
    init: function(x, y, settings){
       this._super(me.Entity, 'init', [x, y, {
@@ -12,13 +13,16 @@ game.PlayerEntity = me.Entity.extend({
               }
       }]);
   
-      this.renderable.addAnimation("idle", [3]);
+      this.renderable.addAnimation("idle", [43]);
+      this.renderable.addAnimation("biIdle", [31]);
       this.renderable.addAnimation("smallWalk", [38, 39, 40, 41, 42, 43], 80);
-      
+      this.renderable.addAnimation("bigWalk", [25, 26, 27, 28, 29, 30, 31], 80);
+        
       this.renderable.setCurrentAnimation("idle"); 
     
-       this.body.setVelocity(5, 20);
-       me.game.viewport.follow(this.pos, me.game.viewport.AXIS.both);
+      this.big = false;
+      this.body.setVelocity(5, 20);
+      me.game.viewport.follow(this.pos, me.game.viewport.AXIS.both);
    },
     
     update: function(delta){
@@ -28,10 +32,13 @@ game.PlayerEntity = me.Entity.extend({
         
         }
         
+        //makes mario go right
+        
         else if(me.input.isKeyPressed("left")){
         this.flipX(true);
         this.body.vel.x -= this.body.accel.x * me.timer.tick;
         
+        //makes mario go left
     }
     else{
         this.body.vel.x = 0;
@@ -46,27 +53,53 @@ game.PlayerEntity = me.Entity.extend({
              this.body.jumping = true;
          }
      }
-    if(this.body.vel.x !== 0){
-        if(!this.renderable.isCurrentAnimation("smallWalk")) {
-        this.renderable.setCurrentAnimation("smallWalk");
-        this.renderable.setAnimationFrame();
-    }
+     
+     //makes mario jump
+     
+     
+     
+    if(!this.big){
+          if(this.body.vel.x !== 0){
+            if(!this.renderable.isCurrentAnimation("smallWalk")) {
+                this.renderable.setCurrentAnimation("smallWalk");
+                this.renderable.setAnimationFrame();
+        }
+        }else{
+            this.renderable.setCurrentAnimation("idle"); 
+        }
     }else{
-        this.renderable.setCurrentAnimation("idle"); 
+         if(this.body.vel.x !== 0){
+              if(!this.renderable.isCurrentAnimation("bigWalk")) {
+                  this.renderable.setCurrentAnimation("bigWalk");
+                  this.renderable.setAnimationFrame();
     }
-    
+         }else{
+             this.renderable.setCurrentAnimation('bigIdle');
+         }
+     }
+     
     
   
     this._super(me.Entity, "update", [delta]);
     return true;
+
     },    
-    
+        
     collideHandler: function(response){
+        var ydif = this.pos.y - response.b.pos.y;
+        console.log(ydif);
+        
      if(response.b.type === 'badguy'){
+         if(ydif <= -115){
+             response.b.alive = false;   
+         }else{
+         
          me.state.change(me.state.MENU);
-     }       
+     }
+ }
     else if(response.b.type === 'mushroom'){
-        console.log("Big!");
+        this.big = true;
+        me.game.world.removeChild(response.b);  
     }
 }
 });
