@@ -13,8 +13,8 @@ game.PlayerEntity = me.Entity.extend({
               }
       }]);
   
-      this.renderable.addAnimation("idle", [43]);
-      this.renderable.addAnimation("biIdle", [31]);
+      this.renderable.addAnimation("idle", [3]);
+      this.renderable.addAnimation("bigIdle", [31]);
       this.renderable.addAnimation("smallWalk", [38, 39, 40, 41, 42, 43], 80);
       this.renderable.addAnimation("bigWalk", [25, 26, 27, 28, 29, 30, 31], 80);
         
